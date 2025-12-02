@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/principal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".RegistroApp">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/barraHerramientasLayout"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/actionBarSize"
+      android:background="#26A69A"
+      app:layout_constraintTop_toTopOf="parent">
+
+    <ImageView
+        android:id="@+id/btnAtras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_action_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@android:color/white"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tituloBarraHerramientas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registro"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+  <TextView
+      android:id="@+id/textoInstruccion"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="32dp"
+      android:text="Ingresa los siguientes datos"
+      android:textColor="@android:color/black"
+      android:textSize="18sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/barraHerramientasLayout" />
+
+  <TextView
+      android:id="@+id/textoAdvertenciaVacio"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="(No dejes Ninguno Vacío)"
+      android:textColor="#F44336"
+      android:textSize="14sp"
+      android:textStyle="italic"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textoInstruccion" />
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/layoutEntradaEmail"
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="32dp"
+      android:layout_marginEnd="32dp"
+      app:boxCornerRadiusBottomEnd="15dp"
+      app:boxCornerRadiusBottomStart="15dp"
+      app:boxCornerRadiusTopEnd="15dp"
+      app:boxCornerRadiusTopStart="15dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textoAdvertenciaVacio"
+      app:startIconDrawable="@drawable/ic_person">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/cajaEntradaEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Correo Electronico"
+        android:inputType="textEmailAddress"
+        android:paddingStart="40dp"
+        android:paddingLeft="12dp" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/layoutEntradaContrasena"
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="32dp"
+      app:boxCornerRadiusBottomEnd="15dp"
+      app:boxCornerRadiusBottomStart="15dp"
+      app:boxCornerRadiusTopEnd="15dp"
+      app:boxCornerRadiusTopStart="15dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/layoutEntradaEmail"
+      app:startIconDrawable="@drawable/ic_lock"
+      app:endIconMode="password_toggle">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/cajaEntradaContrasena"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contraseña"
+        android:paddingStart="40dp"
+        android:paddingLeft="12dp"
+        android:inputType="textPassword" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/layoutEntradaConfirmarContrasena"
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="32dp"
+      app:boxCornerRadiusBottomEnd="15dp"
+      app:boxCornerRadiusBottomStart="15dp"
+      app:boxCornerRadiusTopEnd="15dp"
+      app:boxCornerRadiusTopStart="15dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/layoutEntradaContrasena"
+      app:startIconDrawable="@drawable/ic_lock"
+      app:endIconMode="password_toggle">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/cajaEntradaConfirmarContrasena"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Reingresa Contraseña"
+        android:paddingStart="40dp"
+        android:paddingLeft="12dp"
+        android:inputType="textPassword" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <CheckBox
+      android:id="@+id/cajaTerminos"
+      android:layout_width="151dp"
+      android:layout_height="52dp"
+      android:layout_marginStart="24dp"
+      android:layout_marginTop="24dp"
+      android:text="Estoy de acuerdo con los "
+      android:textColor="@android:color/black"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/layoutEntradaConfirmarContrasena" />
+
+  <TextView
+      android:id="@+id/enlaceTerminosPrivacidad"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:clickable="true"
+      android:focusable="true"
+      android:text="Términos de servicio y Privacidad"
+      android:textColor="#26A69A"
+      android:textSize="14sp"
+      android:textStyle="bold"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.525"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.613" />
+
+  <Button
+      android:id="@+id/btnRegistrar"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="32dp"
+      android:layout_marginEnd="32dp"
+      android:backgroundTint="#26A69A"
+      android:padding="15dp"
+      android:text="Registrarse"
+      android:textColor="@android:color/white"
+      android:textSize="18sp"
+      app:cornerRadius="25dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/cajaTerminos" />
+
+  <TextView
+      android:id="@+id/textoAvisoLogin"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="36dp"
+      android:text="¿Tienes una cuenta? "
+      android:textColor="@android:color/black"
+      android:textSize="16sp"
+      app:layout_constraintEnd_toStartOf="@+id/enlaceLogin"
+      app:layout_constraintHorizontal_chainStyle="packed"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/btnRegistrar" />
+
+  <TextView
+      android:id="@+id/enlaceLogin"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Inicia Sesion"
+      android:textColor="#26A69A"
+      android:textSize="16sp"
+      android:textStyle="bold"
+      android:clickable="true"
+      android:focusable="true"
+      app:layout_constraintBottom_toBottomOf="@+id/textoAvisoLogin"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@+id/textoAvisoLogin"
+      app:layout_constraintTop_toTopOf="@+id/textoAvisoLogin" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

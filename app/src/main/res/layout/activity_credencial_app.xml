@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CredencialApp">
+
+    <!-- BARRA DE HERRAMIENTAS -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/barraHerramientasLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#26A69A"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Botón Atrás/Cerrar Sesión -->
+        <ImageView
+            android:id="@+id/btnAtrasInicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_action_name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@android:color/white"
+            android:contentDescription="Botón para volver"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tituloCredencial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Credencial de Emergencia"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <ScrollView
+        android:id="@+id/formContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav_include"
+        app:layout_constraintTop_toBottomOf="@+id/barraHerramientasLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Genera tu Credencial virtual"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#333"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Nombre Completo -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Nombre Completo">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNombreCompleto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName|textCapWords" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Edad -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Edad (años)">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEdad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="3" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Fecha de Nacimiento -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Fecha de Nacimiento (DD/MM/AAAA)">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFechaNacimiento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="date" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Teléfono Personal -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Teléfono Personal">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTelefonoPersonal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Teléfono de Apoyo (Emergencia) -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Teléfono de Apoyo/Emergencia">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTelefonoApoyo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Alergias -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Alergias (Especifique o ponga 'Ninguna')">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAlergias"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Enfermedades o Trastornos -->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:hint="Enfermedades o Trastornos (Especifique o ponga 'Ninguna')">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEnfermedades"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Botón Crear Credencial -->
+            <Button
+                android:id="@+id/btnCrearCredencial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#26A69A"
+                android:padding="15dp"
+                android:text="Crear Credencial Virtual"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:visibility="gone"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav_include"
+        app:layout_constraintTop_toBottomOf="@+id/barraHerramientasLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:background="#E0F7FA"> <!-- Fondo claro para la credencial -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CREDENCIAL DE EMERGENCIA"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#004D40"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Foto de perfil (opcional, pero útil para diseño) -->
+            <!-- Usamos un placeholder simple -->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivPerfil"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/ic_user_placeholder"
+                android:background="#B2DFDB"
+                tools:ignore="ContentDescription" />
+
+            <!-- Detalles Personales -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DATOS PERSONALES"
+                android:textStyle="bold"
+                android:textColor="#26A69A"
+                android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/tvCardNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre: [Nombre]"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/tvCardEdad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edad: [Edad]"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/tvCardFechaNacimiento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="F. Nacimiento: [DD/MM/AAAA]"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Contactos -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CONTACTO DE EMERGENCIA"
+                android:textStyle="bold"
+                android:textColor="#26A69A"/>
+            <TextView
+                android:id="@+id/tvCardTelPersonal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tel. Personal: [Número]"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/tvCardTelApoyo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tel. Apoyo: [Número]"
+                android:textSize="16sp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Historial Médico -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HISTORIAL MÉDICO"
+                android:textStyle="bold"
+                android:textColor="#26A69A"/>
+            <TextView
+                android:id="@+id/tvCardAlergias"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alergias: [Datos]"
+                android:textSize="16sp"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/tvCardEnfermedades"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enfermedades: [Datos]"
+                android:textSize="16sp"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Botón de Edición -->
+            <Button
+                android:id="@+id/btnEditarCredencial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#B0BEC5"
+                android:padding="10dp"
+                android:text="Editar Datos"
+                android:textColor="@android:color/black" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <!-- NAVEGACIÓN INFERIOR -->
+    <include
+        android:id="@+id/bottom_nav_include"
+        layout="@layout/activity_panel_navegacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
